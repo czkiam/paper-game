@@ -17,10 +17,20 @@ const Game = () => {
   useEffect(() => {
     //effect
     console.log(`score: ${score}, size: ${size}`);
-    //   return () => {
-    //       cleanup
-    //   }
+    return () => {
+      //   cleanup
+      console.log(`cleanup score: ${score}, size: ${size}`);
+    };
   }, [score, size]);
+
+  useEffect(() => {
+    //effect
+    console.log(`loaded: ${score}, size: ${size}`);
+    return () => {
+      //   cleanup
+      console.log(`cleanup: ${score}, size: ${size}`);
+    };
+  }, []);
 
   return (
     <div>

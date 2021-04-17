@@ -1,5 +1,6 @@
 import { selector } from "recoil";
 import { GameScore } from "./Atoms";
+
 const PaperSize = selector({
   key: "PaperSize",
   get: ({ get }) => {
@@ -7,4 +8,19 @@ const PaperSize = selector({
     return 100 + score * 5;
   },
 });
-export { PaperSize };
+
+const fetchHighScores = async () => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(333);
+      }, 20000);
+    });
+  };
+
+const HighGameScore = selector({
+  key: "HighGameScore",
+  get: async ({ get }) => {
+    return await fetchHighScores();
+  },
+});
+export { PaperSize, HighGameScore };
